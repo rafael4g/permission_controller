@@ -10,6 +10,9 @@ async function decoder(request:Request): Promise<User | undefined>{
 
   const userRepository = getCustomRepository(UserRepository);
 
+  if(!authHeader){
+    return undefined;
+  }
   const [, token] = authHeader?.split(" ");
 
   const payload = decode(token);
@@ -28,6 +31,10 @@ function is(role: String[]){
     next:NextFunction
   ) => {
     const user = await decoder(request);
+
+    if(!user){
+      return response.status(401).json({ message: "Invalid Token"})
+    }
 
     const userRoles = user?.roles.map(role => role.name);
 
