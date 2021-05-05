@@ -21,6 +21,8 @@ jsonwebtoken.
 ## 🚀 Tecnologias
 - 🔗 [NodeJS](https://nodejs.org/)
 - 🔗 [Typescript](https://typescriptlang.org/) 
+- 🔗 [Postgre](https://postgresql.org/) 
+
 --- 
 
 
